@@ -26,8 +26,8 @@ class PhieuKeHoachDieuTriDetailCreationRequest extends FormRequest
             'clinical_tests' => 'required|string',
             'treatment_plan' => 'required|string',
             'note' => 'required|string',
-            'in_time' => 'required|string',
-            'phieu_ke_hoach_dieu_tri_id'         => 'required|exists:phieu_ke_hoach_dieu_tris,id',
+            'icd_type' => 'required|string',
+            'phieu_ke_hoach_dieu_tri_id' => 'required|exists:phieu_ke_hoach_dieu_tris,id',
         ];
     }
 }

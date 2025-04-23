@@ -3,6 +3,8 @@
 use App\Http\Controllers\CareController;
 use App\Http\Controllers\MonitoringScheduleController;
 use App\Http\Controllers\PhieuKeHoachDieuTriController;
+use App\Http\Controllers\PhieuKeHoachDieuTriDetailController;
+use App\Http\Controllers\PhieuKhaiThacTienSuDiUngController;
 use App\Http\Controllers\PhieuTruyenDichController;
 use App\Http\Controllers\PhieuTruyenDichDetailController;
 use Illuminate\Support\Facades\Route;
@@ -45,4 +47,20 @@ Route::group(['prefix' => 'phieuKeHoachDieuTri'], function () {
     Route::get('/show/{id}', [PhieuKeHoachDieuTriController::class, 'show']);
     Route::post('/update/{id}', [PhieuKeHoachDieuTriController::class, 'update']);
     Route::post('/destroy/{id}', [PhieuKeHoachDieuTriController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'phieuKeHoachDieuTriDetail'], function () {
+    Route::get('/all', [PhieuKeHoachDieuTriDetailController::class, 'index']);
+    Route::post('/create', [PhieuKeHoachDieuTriDetailController::class, 'store']);
+    Route::get('/show/{id}', [PhieuKeHoachDieuTriDetailController::class, 'show']);
+    Route::post('/update/{id}', [PhieuKeHoachDieuTriDetailController::class, 'update']);
+    Route::post('/destroy/{id}', [PhieuKeHoachDieuTriDetailController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'phieuKhaiThacTienSuDiUng'], function () {
+    Route::get('/all', [PhieuKhaiThacTienSuDiUngController::class, 'index']);
+    Route::post('/create', [PhieuKhaiThacTienSuDiUngController::class, 'store']);
+    Route::get('/show/{id}', [PhieuKhaiThacTienSuDiUngController::class, 'show']);
+    Route::post('/update/{id}', [PhieuKhaiThacTienSuDiUngController::class, 'update']);
+    Route::post('/destroy/{id}', [PhieuKhaiThacTienSuDiUngController::class, 'destroy']);
 });

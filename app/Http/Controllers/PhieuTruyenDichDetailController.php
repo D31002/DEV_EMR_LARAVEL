@@ -51,7 +51,7 @@ class PhieuTruyenDichDetailController extends Controller
             'phieu_truyen_dich_id' => $request->phieu_truyen_dich_id
         ]);
 
-        return new ApiResponseResource(new PhieuTruyenDichResource($phieuTruyenDichDetail));
+        return new ApiResponseResource(new PhieuTruyenDichDetailResource($phieuTruyenDichDetail));
     }
 
     /**
@@ -64,7 +64,7 @@ class PhieuTruyenDichDetailController extends Controller
         if(!$phieuTruyenDichDetail){
             throw new AppException(ErrorCode::PTD_DETAIL_NOT_FOUND);
         }
-        return new ApiResponseResource(new PhieuTruyenDichResource($phieuTruyenDichDetail));
+        return new ApiResponseResource(new PhieuTruyenDichDetailResource($phieuTruyenDichDetail));
     }
 
     /**
@@ -98,7 +98,7 @@ class PhieuTruyenDichDetailController extends Controller
             'signed'=> $request->input('signed',$phieuTruyenDichDetail->signed),
         ]);
 
-        return new ApiResponseResource(new PhieuTruyenDichResource($phieuTruyenDichDetail));
+        return new ApiResponseResource(new PhieuTruyenDichDetailResource($phieuTruyenDichDetail));
     }
 
     /**

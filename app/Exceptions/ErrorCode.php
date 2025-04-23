@@ -11,6 +11,7 @@ enum ErrorCode: int
     case PTD_DETAIL_NOT_FOUND = 1004;
     case PKHDT_NOT_FOUND = 1005;
     case PKHDT_DETAIL_NOT_FOUND = 1006;
+    case PKTTSDU_NOT_FOUND = 1007;
 
     public function message(): string
     {
@@ -22,6 +23,7 @@ enum ErrorCode: int
             self::PTD_DETAIL_NOT_FOUND => 'Chi tiết phiếu truyền dịch không tồn tại',
             self::PKHDT_NOT_FOUND => 'Phiếu kế hoạch điều trị không tồn tại',
             self::PKHDT_DETAIL_NOT_FOUND => 'Chi tiết phiếu kế hoạch điều trị không tồn tại',
+            self::PKTTSDU_NOT_FOUND => 'Phiếu khai thác tiền sử dị ứng không tồn tại',
         };
     }
 
@@ -30,7 +32,7 @@ enum ErrorCode: int
         return match ($this) {
             self::UNDEFINED_ERROR => 500,
             self::PCS_NOT_FOUND, self::PCS_MONITORING_SCHEDULE_NOT_FOUND,self::PTD_NOT_FOUND,self::PTD_DETAIL_NOT_FOUND,
-            self::PKHDT_NOT_FOUND,self::PKHDT_DETAIL_NOT_FOUND => 404,
+            self::PKHDT_NOT_FOUND,self::PKHDT_DETAIL_NOT_FOUND, self::PKTTSDU_NOT_FOUND => 404,
         };
     }
 }

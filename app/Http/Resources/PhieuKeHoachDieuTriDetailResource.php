@@ -22,6 +22,7 @@ class PhieuKeHoachDieuTriDetailResource extends JsonResource
             'clinical_tests' => $this->clinical_tests,
             'treatment_plan' => $this->treatment_plan,
             'note' => $this->note,
+            'icd_type' => $this->icd_type,
         ];
     }
 }

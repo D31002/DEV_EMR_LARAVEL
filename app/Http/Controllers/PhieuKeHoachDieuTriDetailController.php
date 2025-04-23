@@ -32,7 +32,9 @@ class PhieuKeHoachDieuTriDetailController extends Controller
             'clinical_tests' => $request->clinical_tests,
             'treatment_plan' => $request->treatment_plan,
             'note' => $request->note,
-            'phieu_ke_hoach_dieu_tri_id' => $request->phieu_ke_hoach_dieu_tri_id
+            'icd_type' => $request->icd_type,
+            'phieu_ke_hoach_dieu_tri_id' => $request->phieu_ke_hoach_dieu_tri_id,
+
         ]);
 
         return new ApiResponseResource(new PhieuKeHoachDieuTriDetailResource($phieuKeHoachDieuTriDetail));
@@ -54,14 +56,13 @@ class PhieuKeHoachDieuTriDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PhieuKeHoachDieuTriDetailCreationRequest $request, $id)
     {
         $phieuKeHoachDieuTriDetail = PhieuKeHoachDieuTriDetail::find($id);
 
         if(!$phieuKeHoachDieuTriDetail){
             throw new AppException(ErrorCode::PKHDT_DETAIL_NOT_FOUND);
         }
-
         $phieuKeHoachDieuTriDetail->update([
             'issue' => $request->input('issue',$phieuKeHoachDieuTriDetail->issue),
             'clinical_tests'=> $request->input('clinical_tests',$phieuKeHoachDieuTriDetail->clinical_tests),

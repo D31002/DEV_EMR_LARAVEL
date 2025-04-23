@@ -74,7 +74,7 @@ class PhieuKeHoachDieuTriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PhieuKeHoachDieuTri $request, $id)
+    public function update(PhieuKeHoachDieuTriCreationRequest $request, $id)
     {
         $phieuKeHoachDieuTri = PhieuKeHoachDieuTri::where('_id', $id)->with('details')->first();
 
@@ -114,7 +114,7 @@ class PhieuKeHoachDieuTriController extends Controller
         if(!$phieuKeHoachDieuTri){
             throw new AppException(ErrorCode::PKHDT_NOT_FOUND);
         }
-        // $phieuKeHoachDieuTri->details()->delete();
+        $phieuKeHoachDieuTri->details()->delete();
         $phieuKeHoachDieuTri->delete();
         return new ApiResponseResource([]);
     }
