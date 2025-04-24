@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CareCreationRequest extends FormRequest
+class PhieuChamSocCreationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,6 +22,7 @@ class CareCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "treatment_code"=> "required|string",
             'created_by_userName' => 'required|string',
             'created_by_loginName' => 'required|string',
             'hospitalization_number' => 'required|string',

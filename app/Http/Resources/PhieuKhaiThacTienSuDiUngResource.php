@@ -18,6 +18,7 @@ class PhieuKhaiThacTienSuDiUngResource extends JsonResource
             'key' => $this->id,
             'id' => $this->id,
             'code' => $this->code,
+            'treatment_code' => $this->treatment_code,
             'patient_code' => $this->patient_code,
             'patient_fullname' => $this->patient_fullname,
             'patient_dob' => $this->patient_dob,
@@ -41,6 +42,7 @@ class PhieuKhaiThacTienSuDiUngResource extends JsonResource
             'signed' => $this->signed,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
+            'details' => PhieuKhaiThacTienSuDiUngDetailResource::collection($this->whenLoaded('details'))
         ];
     }
 }

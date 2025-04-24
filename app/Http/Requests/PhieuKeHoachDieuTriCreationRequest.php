@@ -22,6 +22,7 @@ class PhieuKeHoachDieuTriCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "treatment_code"=> "required|string",
             'patient_code' => 'required|string',
             'patient_fullname' => 'required|string',
             'patient_dob' => 'required|string',

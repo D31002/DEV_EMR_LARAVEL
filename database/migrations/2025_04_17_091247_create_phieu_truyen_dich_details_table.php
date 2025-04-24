@@ -27,8 +27,10 @@ return new class extends Migration
             $table->string('speed');
             $table->string('inTime');
             $table->string('endTime');
-            $table->string('doctor_prescribed');
-            $table->string('nurse_practice');
+            $table->string('doctor_prescribed_code');
+            $table->string('doctor_prescribed_name');
+            $table->string('nurse_practice_code');
+            $table->string('nurse_practice_name');
             $table->boolean('signed')->default(false);
             $table->string('created_by_userName');
             $table->string('created_by_loginName');

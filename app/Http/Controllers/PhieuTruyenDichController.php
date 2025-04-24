@@ -27,9 +27,7 @@ class PhieuTruyenDichController extends Controller
     public function store(PhieuTruyenDichCreationRequest $request)
     {
         $phieuTruyenDich = PhieuTruyenDich::create([
-            'created_by_userName' => $request->created_by_userName,
-            'created_by_loginName' => $request->created_by_loginName,
-            'signed' => $request->signed,
+            'treatment_code' => $request->treatment_code,
             'hospitalization_number' => $request->hospitalization_number,
             'receipt_number' => $request->receipt_number,
             'department' => $request->department,
@@ -41,7 +39,10 @@ class PhieuTruyenDichController extends Controller
             'icd_code' => $request->icd_code,
             'icd_name' => $request->icd_name,
             'icd_subCode' => $request->icd_subCode,
-            'icd_text' => $request->icd_text
+            'icd_text' => $request->icd_text,
+            'created_by_userName' => $request->created_by_userName,
+            'created_by_loginName' => $request->created_by_loginName,
+            'signed' => $request->signed,
         ]);
     
         return new ApiResponseResource(new PhieuTruyenDichResource($phieuTruyenDich));

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MonitoringScheduleCreationRequest extends FormRequest
+class PhieuKhaiThacTienSuDiUngDetailCreationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,13 @@ class MonitoringScheduleCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'monitoring_dateTime' => 'required|string',
-            'progress_notes' => 'required|string',
-            'care_orders' => 'required|string',
-            'signer' => 'required|string',
-            'created_by_userName' => 'required|string',
-            'created_by_loginName' => 'required|string',
-            'care_id' => 'required|string'
+            'stt' => 'required|integer',
+            'content' => 'required|string',
+            'allergen_name' => 'nullable|string',
+            'occur_times' => 'nullable|string',
+            'no_reaction' => 'boolean',
+            'reaction_handling' => 'required|string',
+            'phieu_khai_thac_tien_su_di_ung_id' => 'required|string',
         ];
     }
 }

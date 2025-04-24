@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('monitoring_schedules', function (Blueprint $table) {
+        Schema::create('phieu_cham_soc_cap2_details', function (Blueprint $table) {
             $table->id();
-            $table->string('monitoring_dateTime');
-            $table->text('progress_notes');
-            $table->text('care_orders');
-            $table->string('signer');
-            $table->string('signer_name');
+            $table->string('dateTime_care');
+            $table->string('patient_condition');
+            $table->string('care_goals');
+            $table->string('nursing_actions');
+            $table->string('evaluation_notes');
+            $table->string('nurse_practice_code');
+            $table->string('nurse_practice_name');
             $table->string('created_by_loginName');
             $table->string('created_by_userName');
-            $table->string('care_id');
+            $table->string('phieu_cham_soc_cap2_id');
             $table->boolean('signed')->default(false);
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('monitoring_schedules');
+        Schema::dropIfExists('phieu_cham_soc_cap2_details');
     }
 };

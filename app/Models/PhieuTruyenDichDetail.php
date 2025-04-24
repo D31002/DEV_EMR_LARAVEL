@@ -21,11 +21,13 @@ class PhieuTruyenDichDetail extends Model
         'speed',
         'inTime',
         'endTime',
-        'doctor_prescribed',
-        'nurse_practice',
-        'signed',
+        'doctor_prescribed_code',
+        'doctor_prescribed_name',
+        'nurse_practice_code',
+        'nurse_practice_name',
         'created_by_userName',
         'created_by_loginName',
+        'signed',
         'phieu_truyen_dich_id',
     ];
 

@@ -9,6 +9,7 @@ class PhieuKeHoachDieuTri extends Model
 
     protected $fillable = [
         'code',
+        'treatment_code',
         'patient_code',
         'patient_fullname',
         'patient_dob',

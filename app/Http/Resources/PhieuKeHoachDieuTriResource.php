@@ -18,6 +18,7 @@ class PhieuKeHoachDieuTriResource extends JsonResource
             "key"=> $this->id,
             'id' => $this->id,
             'code' => $this->code,
+            'treatment_code' => $this->treatment_code,
             'patient_code' => $this->patient_code,
             'patient_fullname' => $this->patient_fullname,
             'patient_dob' => $this->patient_dob,

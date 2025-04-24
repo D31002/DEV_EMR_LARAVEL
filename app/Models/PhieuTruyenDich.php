@@ -8,9 +8,7 @@ class PhieuTruyenDich extends Model
 {
     protected $fillable = [
         'code',
-        'created_by_userName',
-        'created_by_loginName',
-        'signed',
+        'treatment_code',
         'hospitalization_number',
         'receipt_number',
         'department',
@@ -22,7 +20,10 @@ class PhieuTruyenDich extends Model
         'icd_code',
         'icd_name',
         'icd_subCode',
-        'icd_text'
+        'icd_text',
+        'created_by_userName',
+        'created_by_loginName',
+        'signed',
     ];
 
     public function details()

@@ -27,6 +27,7 @@ class PhieuKeHoachDieuTriController extends Controller
     public function store(PhieuKeHoachDieuTriCreationRequest $request)
     {
         $phieuKeHoachDieuTri = PhieuKeHoachDieuTri::create([
+            'treatment_code' => $request->treatment_code,
             'patient_code' => $request->patient_code,
             'patient_fullname' => $request->patient_fullname,
             'patient_dob' => $request->patient_dob,

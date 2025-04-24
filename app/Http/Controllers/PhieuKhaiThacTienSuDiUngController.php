@@ -17,7 +17,12 @@ class PhieuKhaiThacTienSuDiUngController extends Controller
      */
     public function index()
     {
-        $phieuKhaiThacTienSuDiUngs = PhieuKhaiThacTienSuDiUng::all();
+        $phieuKhaiThacTienSuDiUngs = PhieuKhaiThacTienSuDiUng::with(
+            [
+                "details" => function ($query) {
+                $query->orderBy("stt");
+            }
+        ])->get();
         
         return new ApiResponseResource(PhieuKhaiThacTienSuDiUngResource::collection($phieuKhaiThacTienSuDiUngs));
     }
@@ -28,6 +33,7 @@ class PhieuKhaiThacTienSuDiUngController extends Controller
     public function store(PhieuKhaiThacTienSuDiUngCreationRequest $request)
     {
         $phieuKhaiThacTienSuDiUng = PhieuKhaiThacTienSuDiUng::create([
+            'treatment_code' => $request->treatment_code,
             'patient_code' => $request->patient_code,
             'patient_fullname' => $request->patient_fullname,
             'patient_dob' => $request->patient_dob,
@@ -59,7 +65,12 @@ class PhieuKhaiThacTienSuDiUngController extends Controller
      */
     public function show($id)
     {
-        $phieuKhaiThacTienSuDiUng = PhieuKhaiThacTienSuDiUng::where('_id', $id)->first();
+        $phieuKhaiThacTienSuDiUng = PhieuKhaiThacTienSuDiUng::where('_id', $id)->with(
+            [
+                "details" => function ($query) {
+                $query->orderBy("stt");
+            }
+        ])->first();
 
         if(!$phieuKhaiThacTienSuDiUng){
             throw new AppException(ErrorCode::PKTTSDU_NOT_FOUND);
@@ -109,7 +120,7 @@ class PhieuKhaiThacTienSuDiUngController extends Controller
             throw new AppException(ErrorCode::PKTTSDU_NOT_FOUND);
         }
 
-        // $phieuKhaiThacTienSuDiUng->details()->delete();
+        $phieuKhaiThacTienSuDiUng->details()->delete();
         $phieuKhaiThacTienSuDiUng->delete();
         return new ApiResponseResource([]);
     }

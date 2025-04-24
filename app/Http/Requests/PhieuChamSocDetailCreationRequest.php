@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PhieuTruyenDichCreationRequest extends FormRequest
+class PhieuChamSocDetailCreationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,14 @@ class PhieuTruyenDichCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'treatment_code' => 'required|string',
+            'monitoring_dateTime' => 'required|string',
+            'progress_notes' => 'required|string',
+            'care_orders' => 'required|string',
+            'signer_code' => 'required|string',
+            'signer_name' => 'required|string',
             'created_by_userName' => 'required|string',
             'created_by_loginName' => 'required|string',
-            'hospitalization_number' => 'required|string',
-            'department' => 'required|string',
-            'patient_fullname' => 'required|string',
-            'patient_dob' => 'required|string',
-            'patient_gender' => 'required|string',
-            'bed_number' => 'required|string',
-            'bed_room' => 'required|string',
+            'phieu_cham_soc_id' => 'required|string'
         ];
     }
 }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('phieu_khai_thac_tien_su_di_ungs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('code')->unique();
+            $table->string('treatment_code');
             $table->string('patient_code');
             $table->string('patient_fullname');
             $table->string('patient_dob');
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->string('icd_name');
             $table->string('icd_subCode');
             $table->string('icd_text')->nullable();
-            $table->string('allergy_history');
+            $table->string('allergy_history')->nullable();
             $table->string('collection_date');
             $table->string('treatment_doctor_loginName');
             $table->string('treatment_doctor_userName');

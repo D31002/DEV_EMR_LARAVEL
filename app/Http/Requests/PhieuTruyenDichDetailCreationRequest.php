@@ -34,11 +34,13 @@ class PhieuTruyenDichDetailCreationRequest extends FormRequest
             'speed'                        => 'required|string',
             'inTime'                       => 'required|string',
             'endTime'                      => 'required|string',
-            'doctor_prescribed'            => 'required|string',
-            'nurse_practice'               => 'required|string',
-            'signed'                       => 'boolean',
+            'doctor_prescribed_code'       => 'required|string',
+            'doctor_prescribed_name'       => 'required|string',
+            'nurse_practice_code'          => 'required|string',
+            'nurse_practice_name'          => 'required|string',
             'created_by_userName'          => 'required|string',
-            'created_by_loginName'          => 'required|string',
+            'created_by_loginName'         => 'required|string',
+            'signed'                       => 'boolean',
             'phieu_truyen_dich_id'         => 'required|exists:phieu_truyen_diches,id',
         ];
     }

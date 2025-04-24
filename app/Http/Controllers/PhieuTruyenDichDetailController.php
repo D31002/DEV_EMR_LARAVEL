@@ -43,11 +43,13 @@ class PhieuTruyenDichDetailController extends Controller
             'speed' => $request->speed,
             'inTime' => $request->inTime,
             'endTime' => $request->endTime,
-            'doctor_prescribed' => $request->doctor_prescribed,
-            'nurse_practice' => $request->nurse_practice,
-            'signed' => $request->signed,
+            'doctor_prescribed_code' => $request->doctor_prescribed_code,
+            'doctor_prescribed_name' => $request->doctor_prescribed_name,
+            'nurse_practice_code' => $request->nurse_practice_code,
+            'nurse_practice_name' => $request->nurse_practice_name,
             'created_by_userName' => $request->created_by_userName,
             'created_by_loginName' => $request->created_by_loginName,
+            'signed' => $request->signed,
             'phieu_truyen_dich_id' => $request->phieu_truyen_dich_id
         ]);
 
@@ -93,8 +95,10 @@ class PhieuTruyenDichDetailController extends Controller
             'speed'=> $request->input('speed',$phieuTruyenDichDetail->speed),
             'inTime'=> $request->input('inTime',$phieuTruyenDichDetail->inTime),
             'endTime'=> $request->input('endTime',$phieuTruyenDichDetail->endTime),
-            'doctor_prescribed'=> $request->input('doctor_prescribed',$phieuTruyenDichDetail->doctor_prescribed),
-            'nurse_practice'=> $request->input('nurse_practice',$phieuTruyenDichDetail->nurse_practice),
+            'doctor_prescribed_code'=> $request->input('doctor_prescribed_code',$phieuTruyenDichDetail->doctor_prescribed_code),
+            'doctor_prescribed_name'=> $request->input('doctor_prescribed_name',$phieuTruyenDichDetail->doctor_prescribed_name),
+            'nurse_practice_code'=> $request->input('nurse_practice_code',$phieuTruyenDichDetail->nurse_practice_code),
+            'nurse_practice_name'=> $request->input('nurse_practice_name',$phieuTruyenDichDetail->nurse_practice_name),
             'signed'=> $request->input('signed',$phieuTruyenDichDetail->signed),
         ]);
 

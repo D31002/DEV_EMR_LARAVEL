@@ -22,6 +22,7 @@ class PhieuKhaiThacTienSuDiUngCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'treatment_code' => 'required|string',
             'patient_code' => 'required|string',
             'patient_fullname' => 'required|string',
             'patient_dob' => 'required|date',
@@ -34,7 +35,7 @@ class PhieuKhaiThacTienSuDiUngCreationRequest extends FormRequest
             'icd_name' => 'required|string',
             'icd_subCode' => 'required|string',
             'icd_text' => 'required|string',
-            'allergy_history' => 'required|string',
+            'allergy_history' => 'nullable|string',
             'collection_date' => 'required|date',
             'treatment_doctor_loginName' => 'required|string',
             'treatment_doctor_userName' => 'required|string',

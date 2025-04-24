@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MonitoringScheduleResource extends JsonResource
+class PhieuChamSocDetailResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +17,11 @@ class MonitoringScheduleResource extends JsonResource
         return [
             'key' => $this->id,
             'id' => $this->id,
-            'care_id' => $this->care_id,
+            'phieu_cham_soc_id' => $this->phieu_cham_soc_id,
             'monitoring_dateTime' => $this->monitoring_dateTime,
             'progress_notes' => $this->progress_notes,
             'care_orders' => $this->care_orders,
-            'signer' => $this->signer,
+            'signer_code' => $this->signer_code,
             'signer_name' => $this->signer_name,
             'created_by_userName' => $this->created_by_userName,
             'created_by_loginName' => $this->created_by_loginName,

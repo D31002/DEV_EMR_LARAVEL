@@ -4,53 +4,48 @@ namespace App\Models;
 
 use MongoDB\Laravel\Eloquent\Model;
 
-class PhieuKhaiThacTienSuDiUng extends Model
+class PhieuChamSoc extends Model
 {
+
     protected $fillable = [
         'code',
         'treatment_code',
-        'patient_code',
+        'hospitalization_number',
+        'receipt_number',
+        'department',
         'patient_fullname',
         'patient_dob',
         'patient_gender',
-        'in_time',
-        'department',
         'bed_number',
         'bed_room',
         'icd_code',
         'icd_name',
         'icd_subCode',
         'icd_text',
-        'allergy_history',
-        'collection_date',
-        'treatment_doctor_loginName',
-        'treatment_doctor_userName',
-        'information_collector_loginName',
-        'information_collector_userName',
-        'created_by_loginName',
         'created_by_userName',
+        'created_by_loginName',
         'signed',
     ];
 
     public function details()
     {
-        return $this->hasMany(PhieuKhaiThacTienSuDiUngDetail::class, 'phieu_khai_thac_tien_su_di_ung_id', '_id');
+        return $this->hasMany(PhieuChamSocDetail::class, 'phieu_cham_soc_id', '_id');
     }
 
     public static function boot()
     {
         parent::boot();
-        static::creating(function ($phieuKhaiThacTienSuDiUng) { 
-            $phieuKhaiThacTienSuDiUng->code = self::getNextCode();
+        static::creating(function ($care) {
+            $care->code = self::getNextCode();
         });
     }
     public static function getNextCode()
     {
-        $counter = Counter::where('key', 'phieu_khai_thac_tien_su_di_ung_code')->first();
+        $counter = Counter::where('key', 'phieu_cham_soc_code')->first();
 
         if (!$counter) {
             $counter = Counter::create([
-                'key' => 'phieu_khai_thac_tien_su_di_ung_code',
+                'key' => 'phieu_cham_soc_code',
                 'seq' => 1
             ]);
             return 1;

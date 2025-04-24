@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cares', function (Blueprint $table) {
+        Schema::create('phieu_cham_soc_cap2s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('code')->unique();
-            $table->string('created_by_userName');
-            $table->string('created_by_loginName');
-            $table->boolean('signed')->default(false);
+            $table->string('treatment_code');
             $table->string('hospitalization_number');
+            $table->string('in_time');
             $table->unsignedBigInteger('receipt_number')->nullable();
             $table->string('department');
             $table->string('patient_fullname');
@@ -29,6 +28,9 @@ return new class extends Migration
             $table->string('icd_name');
             $table->string('icd_subCode');
             $table->string('icd_text')->nullable();
+            $table->string('created_by_userName');
+            $table->string('created_by_loginName');
+            $table->boolean('signed')->default(false);
             $table->timestamps();
         });
     }
@@ -38,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cares');
+        Schema::dropIfExists('phieu_cham_soc_cap2s');
     }
 };

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CareResource extends JsonResource
+class PhieuChamSocResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,7 @@ class CareResource extends JsonResource
             'key' => $this->id,
             'id' => $this->id,
             'code' => $this->code,
-            'created_by_userName' => $this->created_by_userName,
-            'created_by_loginName' => $this->created_by_loginName,
-            'signed' => $this->signed,
+            'treatment_code' => $this->treatment_code,
             'hospitalization_number' => $this->hospitalization_number,
             'receipt_number' => $this->receipt_number,
             'department' => $this->department,
@@ -33,9 +31,12 @@ class CareResource extends JsonResource
             'icd_name' => $this->icd_name,
             'icd_subCode' => $this->icd_subCode,
             'icd_text' => $this->icd_text,
+            'created_by_userName' => $this->created_by_userName,
+            'created_by_loginName' => $this->created_by_loginName,
+            'signed' => $this->signed,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-            'monitoring_schedules' => MonitoringScheduleResource::collection($this->whenLoaded('monitoringSchedules'))
+            'details' => PhieuChamSocDetailResource::collection($this->whenLoaded('details'))
         ];
     }
 }

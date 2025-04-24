@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('phieu_truyen_diches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('code')->unique();
-            $table->string('created_by_userName');
-            $table->string('created_by_loginName');
-            $table->boolean('signed')->default(false);
+            $table->string('treatment_code');
             $table->string('hospitalization_number');
             $table->unsignedBigInteger('receipt_number')->nullable();
             $table->string('department');
@@ -29,6 +27,9 @@ return new class extends Migration
             $table->string('icd_name');
             $table->string('icd_subCode');
             $table->string('icd_text')->nullable();
+            $table->string('created_by_userName');
+            $table->string('created_by_loginName');
+            $table->boolean('signed')->default(false);
             $table->timestamps();
         });
     }

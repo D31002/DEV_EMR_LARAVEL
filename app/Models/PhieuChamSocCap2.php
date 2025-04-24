@@ -4,15 +4,13 @@ namespace App\Models;
 
 use MongoDB\Laravel\Eloquent\Model;
 
-class Care extends Model
+class PhieuChamSocCap2 extends Model
 {
-
     protected $fillable = [
         'code',
-        'created_by_userName',
-        'created_by_loginName',
-        'signed',
         'hospitalization_number',
+        'treatment_code',
+        'in_time',
         'receipt_number',
         'department',
         'patient_fullname',
@@ -23,13 +21,16 @@ class Care extends Model
         'icd_code',
         'icd_name',
         'icd_subCode',
-        'icd_text'
+        'icd_text',
+        'signed',
+        'created_by_userName',
+        'created_by_loginName',
     ];
 
-    public function monitoringSchedules()
-    {
-        return $this->hasMany(MonitoringSchedule::class, 'care_id', '_id');
-    }
+    // public function monitoringSchedules()
+    // {
+    //     return $this->hasMany(MonitoringSchedule::class, 'phieu_cham_soc_cap2_id', '_id');
+    // }
 
     public static function boot()
     {
@@ -40,11 +41,11 @@ class Care extends Model
     }
     public static function getNextCode()
     {
-        $counter = Counter::where('key', 'care_code')->first();
+        $counter = Counter::where('key', 'phieu_cham_soc_cap2_code')->first();
 
         if (!$counter) {
             $counter = Counter::create([
-                'key' => 'care_code',
+                'key' => 'phieu_cham_soc_cap2_code',
                 'seq' => 1
             ]);
             return 1;

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use MongoDB\Laravel\Eloquent\Model;
 
-class MonitoringSchedule extends Model
+class PhieuChamSocDetail extends Model
 {
     use HasFactory;
 
@@ -13,16 +13,16 @@ class MonitoringSchedule extends Model
         'monitoring_dateTime',
         'progress_notes',
         'care_orders',
-        'signer',
+        'signer_code',
         'signer_name',
-        'signed',
         'created_by_userName',
         'created_by_loginName',
-        'care_id'
+        'signed',
+        'phieu_cham_soc_id'
     ];
 
-    public function care()
+    public function phieuChamSoc()
     {
-        return $this->belongsTo(Care::class, 'care_id', '_id'); 
+        return $this->belongsTo(PhieuChamSoc::class, 'phieu_cham_soc_id', '_id'); 
     }
 }
