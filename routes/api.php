@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PhieuChamSocCap2Controller;
+use App\Http\Controllers\PhieuChamSocCap2DetailController;
 use App\Http\Controllers\PhieuChamSocController;
 use App\Http\Controllers\PhieuChamSocDetailController;
 use App\Http\Controllers\PhieuKeHoachDieuTriController;
@@ -24,6 +26,22 @@ Route::group(['prefix' => 'phieuChamSocDetail'], function () {
     Route::get('/show/{id}', [PhieuChamSocDetailController::class, 'show']);
     Route::post('/update/{id}', [PhieuChamSocDetailController::class, 'update']);
     Route::post('/destroy/{id}', [PhieuChamSocDetailController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'phieuChamSocCap2'], function () {
+    Route::get('/all', [PhieuChamSocCap2Controller::class, 'index']);
+    Route::post('/create', [PhieuChamSocCap2Controller::class, 'store']);
+    Route::get('/show/{id}', [PhieuChamSocCap2Controller::class, 'show']);
+    Route::post('/update/{id}', [PhieuChamSocCap2Controller::class, 'update']);
+    Route::post('/destroy/{id}', [PhieuChamSocCap2Controller::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'phieuChamSocCap2Detail'], function () {
+    Route::get('/all', [PhieuChamSocCap2DetailController::class, 'index']);
+    Route::post('/create', [PhieuChamSocCap2DetailController::class, 'store']);
+    Route::get('/show/{id}', [PhieuChamSocCap2DetailController::class, 'show']);
+    Route::post('/update/{id}', [PhieuChamSocCap2DetailController::class, 'update']);
+    Route::post('/destroy/{id}', [PhieuChamSocCap2DetailController::class, 'destroy']);
 });
 
 Route::group(['prefix' => 'phieuTruyenDich'], function () {

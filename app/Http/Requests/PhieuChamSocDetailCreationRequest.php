@@ -23,13 +23,14 @@ class PhieuChamSocDetailCreationRequest extends FormRequest
     {
         return [
             'monitoring_dateTime' => 'required|string',
-            'progress_notes' => 'required|string',
-            'care_orders' => 'required|string',
-            'signer_code' => 'required|string',
-            'signer_name' => 'required|string',
+            'progress_notes' => 'nullable|string',
+            'care_orders' => 'nullable|string',
+            'signer_code' => 'nullable|string',
+            'signer_name' => 'nullable|string',
             'created_by_userName' => 'required|string',
             'created_by_loginName' => 'required|string',
-            'phieu_cham_soc_id' => 'required|string'
+            'signed' => 'required|boolean',
+            'phieu_cham_soc_id' => 'required|exists:phieu_cham_socs,id'
         ];
     }
 }

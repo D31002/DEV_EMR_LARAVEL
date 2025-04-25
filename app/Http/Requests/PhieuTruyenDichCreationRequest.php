@@ -32,6 +32,7 @@ class PhieuTruyenDichCreationRequest extends FormRequest
             'patient_gender' => 'required|string',
             'bed_number' => 'required|string',
             'bed_room' => 'required|string',
+            'signed' => 'required|boolean',
         ];
     }
 }

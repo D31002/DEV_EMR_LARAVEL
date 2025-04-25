@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PhieuChamSocCreationRequest extends FormRequest
+class PhieuChamSocCap2DetailCreationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +22,17 @@ class PhieuChamSocCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "treatment_code"=> "required|string",
+            "dateTime_care"=> "required|string",
+            "patient_condition"=> "nullable|string",
+            'care_goals' => 'nullable|string',
+            'nursing_actions' => 'nullable|string',
+            'evaluation_notes' => 'nullable|string',
+            'nurse_practice_code' => 'nullable|string',
+            'nurse_practice_name' => 'nullable|string',
             'created_by_userName' => 'required|string',
             'created_by_loginName' => 'required|string',
-            'hospitalization_number' => 'required|string',
-            'department' => 'required|string',
-            'patient_fullname' => 'required|string',
-            'patient_dob' => 'required|string',
-            'patient_gender' => 'required|string',
-            'bed_number' => 'required|string',
-            'bed_room' => 'required|string',
             'signed' => 'required|boolean',
+            'phieu_cham_soc_cap2_id' => 'required|exists:phieu_cham_soc_cap2s,id'
         ];
     }
 }

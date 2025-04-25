@@ -71,7 +71,6 @@ class PhieuChamSocController extends Controller
         }
 
         $phieuChamSoc->update([
-            'signed' => $request->input('signed',$phieuChamSoc->signed),
             'receipt_number'=> $request->input('receipt_number',$phieuChamSoc->receipt_number),
             'department'=> $request->input('department',$phieuChamSoc->department),
             'bed_number'=> $request->input('bed_number',$phieuChamSoc->bed_number),
@@ -80,6 +79,7 @@ class PhieuChamSocController extends Controller
             'icd_name'=> $request->input('icd_name',$phieuChamSoc->icd_name),
             'icd_subCode'=> $request->input('icd_subCode',$phieuChamSoc->icd_subCode),
             'icd_text'=> $request->input('icd_text',$phieuChamSoc->icd_text),
+            'signed' => $request->input('signed',$phieuChamSoc->signed),
         ]);
         return new ApiResponseResource(new PhieuChamSocResource($phieuChamSoc));
     }

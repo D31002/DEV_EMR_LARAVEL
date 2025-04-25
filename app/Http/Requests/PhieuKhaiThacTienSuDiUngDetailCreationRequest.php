@@ -27,8 +27,8 @@ class PhieuKhaiThacTienSuDiUngDetailCreationRequest extends FormRequest
             'allergen_name' => 'nullable|string',
             'occur_times' => 'nullable|string',
             'no_reaction' => 'boolean',
-            'reaction_handling' => 'required|string',
-            'phieu_khai_thac_tien_su_di_ung_id' => 'required|string',
+            'reaction_handling' => 'nullable|string',
+            'phieu_khai_thac_tien_su_di_ung_id' => 'required|exists:phieu_khai_thac_tien_su_di_ungs,id',
         ];
     }
 }

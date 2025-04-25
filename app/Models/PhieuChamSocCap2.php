@@ -27,10 +27,10 @@ class PhieuChamSocCap2 extends Model
         'created_by_loginName',
     ];
 
-    // public function monitoringSchedules()
-    // {
-    //     return $this->hasMany(MonitoringSchedule::class, 'phieu_cham_soc_cap2_id', '_id');
-    // }
+    public function details()
+    {
+        return $this->hasMany(PhieuChamSocCap2Detail::class, 'phieu_cham_soc_cap2_id', '_id');
+    }
 
     public static function boot()
     {

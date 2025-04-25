@@ -42,13 +42,13 @@ class PhieuKeHoachDieuTriCreationRequest extends FormRequest
             'estimated_total_cost' => 'nullable|string',
             'patient_relative_type' => 'nullable|string',
             'patient_relative_name' => 'nullable|string',
-            'treatment_doctor_loginName' => 'required|string',
-            'treatment_doctor_userName' => 'required|string',
-            'department_head_approved_loginName' => 'required|string',
-            'department_head_approved_userName' => 'required|string',
+            'treatment_doctor_loginName' => 'nullable|string',
+            'treatment_doctor_userName' => 'nullable|string',
+            'department_head_approved_loginName' => 'nullable|string',
+            'department_head_approved_userName' => 'nullable|string',
             'created_by_loginName' => 'required|string',
             'created_by_userName' => 'required|string',
-            'signed' => 'nullable|boolean',
+            'signed' => 'required|boolean',
         ];
     }
 }

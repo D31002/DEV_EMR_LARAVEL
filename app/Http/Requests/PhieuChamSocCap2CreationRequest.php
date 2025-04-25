@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PhieuChamSocCreationRequest extends FormRequest
+class PhieuChamSocCap2CreationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,7 @@ class PhieuChamSocCreationRequest extends FormRequest
     {
         return [
             "treatment_code"=> "required|string",
+            "in_time"=> "required|string",
             'created_by_userName' => 'required|string',
             'created_by_loginName' => 'required|string',
             'hospitalization_number' => 'required|string',

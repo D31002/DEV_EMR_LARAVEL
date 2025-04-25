@@ -13,6 +13,8 @@ enum ErrorCode: int
     case PKHDT_DETAIL_NOT_FOUND = 1006;
     case PKTTSDU_NOT_FOUND = 1007;
     case PKTTSDU_DETAIL_NOT_FOUND = 1008;
+    case PCSC2_NOT_FOUND = 1009;
+    case PCSC2_DETAIL_NOT_FOUND = 1010;
 
     public function message(): string
     {
@@ -26,6 +28,8 @@ enum ErrorCode: int
             self::PKHDT_DETAIL_NOT_FOUND => 'Chi tiết phiếu kế hoạch điều trị không tồn tại',
             self::PKTTSDU_NOT_FOUND => 'Phiếu khai thác tiền sử dị ứng không tồn tại',
             self::PKTTSDU_DETAIL_NOT_FOUND => 'Chi tiết phiếu khai thác tiền sử dị ứng không tồn tại',
+            self::PCSC2_NOT_FOUND => 'Phiếu chăm sóc cấp 2 không tồn tại',
+            self::PCSC2_DETAIL_NOT_FOUND => 'Chi tiết phiếu chăm sóc cấp 2 không tồn tại',
         };
     }
 
@@ -34,7 +38,8 @@ enum ErrorCode: int
         return match ($this) {
             self::UNDEFINED_ERROR => 500,
             self::PCS_NOT_FOUND, self::PCS_MONITORING_SCHEDULE_NOT_FOUND,self::PTD_NOT_FOUND,self::PTD_DETAIL_NOT_FOUND,
-            self::PKHDT_NOT_FOUND,self::PKHDT_DETAIL_NOT_FOUND, self::PKTTSDU_NOT_FOUND,self::PKTTSDU_DETAIL_NOT_FOUND => 404,
+            self::PKHDT_NOT_FOUND,self::PKHDT_DETAIL_NOT_FOUND, self::PKTTSDU_NOT_FOUND,self::PKTTSDU_DETAIL_NOT_FOUND,
+            self::PCSC2_NOT_FOUND,self::PCSC2_DETAIL_NOT_FOUND => 404,
         };
     }
 }

@@ -22,10 +22,10 @@ class PhieuKeHoachDieuTriDetailCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'issue' => 'required|string',
-            'clinical_tests' => 'required|string',
-            'treatment_plan' => 'required|string',
-            'note' => 'required|string',
+            'issue' => 'nullable|string',
+            'clinical_tests' => 'nullable|string',
+            'treatment_plan' => 'nullable|string',
+            'note' => 'nullable|string',
             'icd_type' => 'required|string',
             'phieu_ke_hoach_dieu_tri_id' => 'required|exists:phieu_ke_hoach_dieu_tris,id',
         ];
