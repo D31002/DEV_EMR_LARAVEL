@@ -4,21 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\AppException;
 use App\Exceptions\ErrorCode;
+use App\Http\Controllers\BaseControllers\BaseApiController;
 use App\Http\Requests\PhieuKeHoachDieuTriCreationRequest;
 use App\Http\Resources\ApiResponseResource;
 use App\Http\Resources\PhieuKeHoachDieuTriResource;
 use App\Models\PhieuKeHoachDieuTri;
+use Illuminate\Http\Request;
 
-class PhieuKeHoachDieuTriController extends Controller
+class PhieuKeHoachDieuTriController extends BaseApiController
 {
+    public function __construct(Request $request){
+        parent::__construct($request);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {  
-        $phieuKeHoachDieuTris = PhieuKeHoachDieuTri::with("details")->get();
+        if(!$this->treatmentCode){
+            throw new AppException(ErrorCode::UNDEFINED_ERROR);
+        }
         
-        return new ApiResponseResource(PhieuKeHoachDieuTriResource::collection($phieuKeHoachDieuTris));
+        $data = PhieuKeHoachDieuTri::where('treatment_code',$this->treatmentCode)->with('details');
+        foreach ($this->orderBy as $key => $value) {
+            $data = $data->orderBy($key, $value);
+        }
+        $data = $data->get();
+
+        return new ApiResponseResource(PhieuKeHoachDieuTriResource::collection($data));
+        
     }
 
     /**

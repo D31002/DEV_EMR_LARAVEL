@@ -5,6 +5,9 @@ namespace App\Exceptions;
 enum ErrorCode: int
 {
     case UNDEFINED_ERROR = 9999;
+    case PARAM_ERROR = 8888;
+    case INVALID_PARAMETER = 7777;
+    case INVALID_SORT_DIRECTION = 6666;
     case PCS_NOT_FOUND = 1001;
     case PCS_MONITORING_SCHEDULE_NOT_FOUND = 1002;
     case PTD_NOT_FOUND = 1003;
@@ -20,6 +23,9 @@ enum ErrorCode: int
     {
         return match ($this) {
             self::UNDEFINED_ERROR => 'Lỗi chưa được phân loại',
+            self::PARAM_ERROR => 'Param không hợp lệ',
+            self::INVALID_PARAMETER => 'Tham số không hợp lệ',
+            self::INVALID_SORT_DIRECTION => 'Sắp xếp không hợp lệ',
             self::PCS_NOT_FOUND => 'Phiếu chăm sóc không tồn tại',
             self::PCS_MONITORING_SCHEDULE_NOT_FOUND => 'Lịch theo dõi của phiếu chăm không tồn tại',
             self::PTD_NOT_FOUND => 'Phiếu truyền dịch không tồn tại',
@@ -37,6 +43,7 @@ enum ErrorCode: int
     {
         return match ($this) {
             self::UNDEFINED_ERROR => 500,
+            self::PARAM_ERROR,self::INVALID_PARAMETER,self::INVALID_SORT_DIRECTION => 400,
             self::PCS_NOT_FOUND, self::PCS_MONITORING_SCHEDULE_NOT_FOUND,self::PTD_NOT_FOUND,self::PTD_DETAIL_NOT_FOUND,
             self::PKHDT_NOT_FOUND,self::PKHDT_DETAIL_NOT_FOUND, self::PKTTSDU_NOT_FOUND,self::PKTTSDU_DETAIL_NOT_FOUND,
             self::PCSC2_NOT_FOUND,self::PCSC2_DETAIL_NOT_FOUND => 404,

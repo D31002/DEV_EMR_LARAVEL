@@ -4,27 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\AppException;
 use App\Exceptions\ErrorCode;
+use App\Http\Controllers\BaseControllers\BaseApiController;
 use App\Http\Requests\PhieuKhaiThacTienSuDiUngCreationRequest;
 use App\Http\Resources\ApiResponseResource;
 use App\Http\Resources\PhieuKhaiThacTienSuDiUngResource;
 use App\Models\PhieuKhaiThacTienSuDiUng;
 use Illuminate\Http\Request;
 
-class PhieuKhaiThacTienSuDiUngController extends Controller
+class PhieuKhaiThacTienSuDiUngController extends BaseApiController
 {
+    public function __construct(Request $request){
+        parent::__construct($request);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $phieuKhaiThacTienSuDiUngs = PhieuKhaiThacTienSuDiUng::with(
-            [
-                "details" => function ($query) {
-                $query->orderBy("stt");
-            }
-        ])->get();
+        if(!$this->treatmentCode){
+            throw new AppException(ErrorCode::UNDEFINED_ERROR);
+        }
         
-        return new ApiResponseResource(PhieuKhaiThacTienSuDiUngResource::collection($phieuKhaiThacTienSuDiUngs));
+        $data = PhieuKhaiThacTienSuDiUng::where('treatment_code',$this->treatmentCode)->with(
+                [
+                    "details" => function ($query) {
+                    $query->orderBy("stt");
+                }
+        ]);
+        
+        foreach ($this->orderBy as $key => $value) {
+            $data = $data->orderBy($key, $value);
+        }
+        $data = $data->get();
+
+        return new ApiResponseResource(PhieuKhaiThacTienSuDiUngResource::collection($data));
     }
 
     /**

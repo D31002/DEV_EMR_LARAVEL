@@ -4,22 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\AppException;
 use App\Exceptions\ErrorCode;
+use App\Http\Controllers\BaseControllers\BaseApiController;
 use App\Http\Requests\PhieuChamSocCap2CreationRequest;
 use App\Http\Resources\ApiResponseResource;
 use App\Http\Resources\PhieuChamSocCap2Resource;
 use App\Models\PhieuChamSocCap2;
 use Illuminate\Http\Request;
 
-class PhieuChamSocCap2Controller extends Controller
+class PhieuChamSocCap2Controller extends BaseApiController
 {
+    public function __construct(Request $request){
+        parent::__construct($request);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $phieuChamSocCap2s = PhieuChamSocCap2::with('details')->get();
+        if(!$this->treatmentCode){
+            throw new AppException(ErrorCode::UNDEFINED_ERROR);
+        }
         
-        return new ApiResponseResource(PhieuChamSocCap2Resource::collection($phieuChamSocCap2s));
+        $data = PhieuChamSocCap2::where('treatment_code',$this->treatmentCode)->with('details');
+        foreach ($this->orderBy as $key => $value) {
+            $data = $data->orderBy($key, $value);
+        }
+        $data = $data->get();
+
+        return new ApiResponseResource(PhieuChamSocCap2Resource::collection($data));
     }
 
     /**
