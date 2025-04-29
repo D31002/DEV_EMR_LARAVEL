@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BangKiemSauKhiMoController;
 use App\Http\Controllers\PhieuChamSocCap2Controller;
 use App\Http\Controllers\PhieuChamSocCap2DetailController;
 use App\Http\Controllers\PhieuChamSocController;
@@ -90,4 +91,12 @@ Route::group(['prefix' => 'phieuKhaiThacTienSuDiUngDetail'], function () {
     Route::get('/show/{id}', [PhieuKhaiThacTienSuDiUngDetailController::class, 'show']);
     Route::post('/update/{id}', [PhieuKhaiThacTienSuDiUngDetailController::class, 'update']);
     Route::post('/destroy/{id}', [PhieuKhaiThacTienSuDiUngDetailController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'bangKiemSauKhiMo'], function () {
+    Route::get('/all', [BangKiemSauKhiMoController::class, 'index']);
+    Route::post('/create', [BangKiemSauKhiMoController::class, 'store']);
+    Route::get('/show/{id}', [BangKiemSauKhiMoController::class, 'show']);
+    Route::post('/update/{id}', [BangKiemSauKhiMoController::class, 'update']);
+    Route::post('/destroy/{id}', [BangKiemSauKhiMoController::class, 'destroy']);
 });
