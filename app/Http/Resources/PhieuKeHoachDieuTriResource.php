@@ -45,6 +45,8 @@ class PhieuKeHoachDieuTriResource extends JsonResource
             'created_by_loginName' => $this->created_by_loginName,
             'created_by_userName' => $this->created_by_userName,
             'signed' => $this->signed,
+            'branch_name' => $this->branch_name,
+            'parent_organization_name' => $this->parent_organization_name,
             'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
             'details' => PhieuKeHoachDieuTriDetailResource::collection($this->whenLoaded('details'))

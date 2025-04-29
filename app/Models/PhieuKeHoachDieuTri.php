@@ -36,6 +36,8 @@ class PhieuKeHoachDieuTri extends Model
         'created_by_loginName',
         'created_by_userName',
         'signed',
+        'branch_name',
+        'parent_organization_name',
     ];
 
     public function details()

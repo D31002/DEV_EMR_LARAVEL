@@ -25,6 +25,8 @@ class PhieuChamSocCap2 extends Model
         'signed',
         'created_by_userName',
         'created_by_loginName',
+        'branch_name',
+        'parent_organization_name',
     ];
 
     public function details()

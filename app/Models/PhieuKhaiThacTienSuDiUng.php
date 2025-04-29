@@ -13,6 +13,8 @@ class PhieuKhaiThacTienSuDiUng extends Model
         'patient_fullname',
         'patient_dob',
         'patient_gender',
+        'patient_address',
+        'patient_ethnicName',
         'in_time',
         'department',
         'bed_number',
@@ -30,6 +32,8 @@ class PhieuKhaiThacTienSuDiUng extends Model
         'created_by_loginName',
         'created_by_userName',
         'signed',
+        'branch_name',
+        'parent_organization_name',
     ];
 
     public function details()

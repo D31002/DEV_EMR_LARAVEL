@@ -41,6 +41,8 @@ return new class extends Migration
             $table->string('created_by_loginName');
             $table->string('created_by_userName');
             $table->boolean('signed')->default(false);
+            $table->string('branch_name');
+            $table->string('parent_organization_name');
             $table->timestamps();
         });
     }

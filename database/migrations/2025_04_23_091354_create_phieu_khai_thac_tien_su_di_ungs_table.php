@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('patient_fullname');
             $table->string('patient_dob');
             $table->string('patient_gender');
+            $table->string('patient_address');
+            $table->string('patient_ethnicName');
             $table->string('in_time');
             $table->string('department');
             $table->string('bed_number');
@@ -36,6 +38,8 @@ return new class extends Migration
             $table->string('created_by_loginName');
             $table->string('created_by_userName');
             $table->boolean('signed')->default(false);
+            $table->string('branch_name');
+            $table->string('parent_organization_name');
             $table->timestamps();
         });
     }

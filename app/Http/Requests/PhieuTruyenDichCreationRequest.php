@@ -33,6 +33,8 @@ class PhieuTruyenDichCreationRequest extends FormRequest
             'bed_number' => 'required|string',
             'bed_room' => 'required|string',
             'signed' => 'required|boolean',
+            'branch_name' => 'required|string',
+            'parent_organization_name' => 'required|string',
         ];
     }
 }

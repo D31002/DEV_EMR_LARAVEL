@@ -49,6 +49,8 @@ class PhieuKeHoachDieuTriCreationRequest extends FormRequest
             'created_by_loginName' => 'required|string',
             'created_by_userName' => 'required|string',
             'signed' => 'required|boolean',
+            'branch_name' => 'required|string',
+            'parent_organization_name' => 'required|string',
         ];
     }
 }

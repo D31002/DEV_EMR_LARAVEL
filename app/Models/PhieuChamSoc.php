@@ -25,6 +25,8 @@ class PhieuChamSoc extends Model
         'created_by_userName',
         'created_by_loginName',
         'signed',
+        'branch_name',
+        'parent_organization_name',
     ];
 
     public function details()

@@ -68,6 +68,8 @@ class PhieuKeHoachDieuTriController extends BaseApiController
             'created_by_loginName' => $request->created_by_loginName,
             'created_by_userName' => $request->created_by_userName,
             'signed' => $request->signed,
+            'branch_name' => $request->branch_name,
+            'parent_organization_name' => $request->parent_organization_name,
         ]);
     
         return new ApiResponseResource(new PhieuKeHoachDieuTriResource($phieuKeHoachDieuTri));

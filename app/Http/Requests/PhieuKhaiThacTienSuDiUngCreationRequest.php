@@ -27,6 +27,8 @@ class PhieuKhaiThacTienSuDiUngCreationRequest extends FormRequest
             'patient_fullname' => 'required|string',
             'patient_dob' => 'required|date',
             'patient_gender' => 'required|string',
+            'patient_address' => 'nullable|string',
+            'patient_ethnicName' => 'nullable|string',
             'in_time' => 'required|string',
             'department' => 'required|string',
             'bed_number' => 'required|string',
@@ -44,6 +46,8 @@ class PhieuKhaiThacTienSuDiUngCreationRequest extends FormRequest
             'created_by_loginName' => 'required|string',
             'created_by_userName' => 'required|string',
             'signed' => 'required|boolean',
+            'branch_name' => 'required|string',
+            'parent_organization_name' => 'required|string',
         ];
     }
 }
